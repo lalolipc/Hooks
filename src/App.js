@@ -51,6 +51,17 @@ function App() {
       ))
       setTodos(changedTodos)
     }
+/*boton editar*/
+  const todoUpdate=(todoEdit)=>{
+    const changedTodos=todos.map(todo=>(
+    todo.id ===todoEdit.id
+    ? todoEdit
+    :todo//sino retornar sin editar
+
+   
+    ));
+  setTodos(changedTodos)
+}
 
 /*boton agregar*/
 
@@ -82,7 +93,8 @@ const todoAdd=(todo)=>{
     </div>
     <div className="aside">
     <TodoForm todoAdd={todoAdd}
-    todoEdit={todoEdit}/>
+    todoEdit={todoEdit}
+    todoUpdate={todoUpdate}/>
     </div>
     </div>
   );

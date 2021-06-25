@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const TodoForm = ({todoAdd,todoEdit}) => {
+const TodoForm = ({todoAdd,todoEdit,todoUpdate}) => {
     
     const initialFormValues={
         title:'',
@@ -8,11 +8,16 @@ const TodoForm = ({todoAdd,todoEdit}) => {
     }
     const [formValues, setFormValues] = useState(initialFormValues);
     const{title,description}=formValues;
-    const [error, setError] = useState(null)/*solucion titulo vacio*/
-    const [successMessage, setSuccessMessage] = useState(null)
+    const [error, setError] = useState(null)/*error titulo vacio*/
+    const [successMessage, setSuccessMessage] = useState(null)/*exito campo agregado*/
 
+useEffect(() => {
+        if(todoEdit){
+        setFormValues(todoEdit);
+    }
+}, [todoEdit])
 
-    /*Name decir que name pertenece al value*/
+    /* Editar Name decir que name pertenece al value*/
 const handleInputChange=(e)=>{
 
 
@@ -37,7 +42,13 @@ const handleSubmit=(e)=>{
         return;
     }
     //enviar los datos
-   todoAdd(formValues);
+if(todoEdit){// que titulo no sea null
+    todoUpdate(formValues)
+}
+else{
+    todoAdd(formValues);
+}
+   
    setFormValues(initialFormValues);
    setSuccessMessage('agregado con exito');
 
@@ -52,7 +63,7 @@ const handleSubmit=(e)=>{
 
     return (
      <div>
-         <h1>Nueva Tarea</h1>
+         <h1>{todoEdit ? 'Editar Tarea' : 'Nueva tarea'}</h1>
          <form onSubmit={handleSubmit}>
              <input
              type="text"
@@ -73,7 +84,7 @@ const handleSubmit=(e)=>{
 
              <button
              className="btn btn-primary btn-block mt-2"
-             >aceptar</button>
+             >{todoEdit ? 'Actualizar tarea': 'agrgar tarea'}</button>
          </form>
          {/*Primer manera de mostrar error y luego otra resumida
              error

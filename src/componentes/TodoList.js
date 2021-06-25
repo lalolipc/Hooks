@@ -5,7 +5,7 @@ import Todo from './Todo';
 const TodoList = ({todos,todoDelete,todoToogleCompleted,setTodoEdit}) => {
     
     return (
-     <div>
+     <div className="gallery">
          {
              todos.map(todo=>
              <Todo 
