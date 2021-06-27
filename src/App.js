@@ -15,11 +15,25 @@ const initialTodos=[{
       title:"pepe2",
       description:"juj2",
       completed:false
-      }];
-      
-  
+  },
+  {
+    id:3,
+    title:"pepe2",
+    description:"soytres",
+    completed:false
+    },
+  {
+      id:4,
+      title:"pepe3",
+      description:"soycuatro",
+      completed:false
+  }
+  ];
+ 
 
 function App() {
+  
+
   //se toma el array y se pone index0 e index 1
   const [todos,setTodos]=useState(initialTodos);
   const [todoEdit, setTodoEdit] = useState(null)
@@ -82,20 +96,22 @@ const todoAdd=(todo)=>{
 }
 
   return (
-    <div className="Principal">
+    <div >
       <div><h1>Listado de Tareas</h1></div>
       
-      <div className="main">
+      <div >
     <TodoList todos={todos}
       todoDelete={todoDelete}
       todoToogleCompleted={todoToogleCompleted}
       setTodoEdit={setTodoEdit}/>
     </div>
-    <div className="aside">
+    
+    <div >
     <TodoForm todoAdd={todoAdd}
     todoEdit={todoEdit}
     todoUpdate={todoUpdate}/>
     </div>
+    
     </div>
   );
 }

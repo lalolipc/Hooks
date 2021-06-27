@@ -13,7 +13,8 @@ const TodoList = ({todos,todoDelete,todoToogleCompleted,setTodoEdit}) => {
               key={todo.id}
               todoDelete={todoDelete}
               todoToogleCompleted={todoToogleCompleted}
-              setTodoEdit={setTodoEdit}/>)
+              setTodoEdit={setTodoEdit}
+              />)
          }
      </div>
     );

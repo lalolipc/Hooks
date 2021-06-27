@@ -54,7 +54,7 @@ else{
 
    setTimeout(()=>{
     setSuccessMessage(null);
-   },2000);
+   },1400);
    
    setError(null); //devolver error a estado inicial
 }
@@ -62,9 +62,29 @@ else{
 
 
     return (
-     <div>
+     <div class="gallery">
+        
+         <form class="item-b" onSubmit={handleSubmit}>
          <h1>{todoEdit ? 'Editar Tarea' : 'Nueva tarea'}</h1>
-         <form onSubmit={handleSubmit}>
+          {/*Primer manera de mostrar error y luego otra resumida
+             error
+             ?(
+                    <div className="alert alert-danger mt-2"> {error}</div>
+             ):(
+                    null
+             )*/
+
+             error &&
+             (
+                    <div className="s alert alert-danger mt-2"> {error}</div>
+             )
+         }
+         {
+             successMessage &&
+             (
+                    <div className="s alert alert-success mt-2"> {successMessage}</div>
+             )
+         }
              <input
              type="text"
              placeholder="titulo"
@@ -84,27 +104,9 @@ else{
 
              <button
              className="btn btn-primary btn-block mt-2"
-             >{todoEdit ? 'Actualizar tarea': 'agrgar tarea'}</button>
+             >{todoEdit ? 'Actualizar tarea': 'agregar tarea'}</button>
          </form>
-         {/*Primer manera de mostrar error y luego otra resumida
-             error
-             ?(
-                    <div className="alert alert-danger mt-2"> {error}</div>
-             ):(
-                    null
-             )*/
-
-             error &&
-             (
-                    <div className="alert alert-danger mt-2"> {error}</div>
-             )
-         }
-         {
-             successMessage &&
-             (
-                    <div className="alert alert-success mt-2"> {successMessage}</div>
-             )
-         }
+        
         
      </div>
     );

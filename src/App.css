@@ -32,6 +32,7 @@
 }
 .main {
   display: flex;
+  
 }
 
 .App-link {
@@ -46,13 +47,29 @@
     transform: rotate(360deg);
   }
 }
+
 .gallery {
   display: grid;
   gap: 1rem;
   grid-auto-flow: dense;
-  grid-auto-rows: 22rem;
+  grid-auto-rows: 12rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 .featured {
   grid-column: span 2;
+}
+.item-a {
+  grid-column-start: 1;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: 3;
+}
+
+.item-c {
+  grid-column: 2 / span 2;
+  grid-row: third-line / 4;
+}
+.s{
+  place-self: center;
+  grid-column-start: 1;
 }
