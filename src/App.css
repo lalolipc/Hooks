@@ -32,7 +32,6 @@
 }
 .main {
   display: flex;
-  
 }
 
 .App-link {
@@ -69,7 +68,7 @@
   grid-column: 2 / span 2;
   grid-row: third-line / 4;
 }
-.s{
-  place-self: center;
-  grid-column-start: 1;
+.paddinOnTop{
+  padding-top: 15px;
+  text-align: center;
 }

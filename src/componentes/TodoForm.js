@@ -62,7 +62,7 @@ else{
 
 
     return (
-     <div class="gallery">
+     <div class="gallery" >
         
          <form class="item-b" onSubmit={handleSubmit}>
          <h1>{todoEdit ? 'Editar Tarea' : 'Nueva tarea'}</h1>

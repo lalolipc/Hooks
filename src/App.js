@@ -4,27 +4,39 @@ import './App.css';
 import TodoList from './componentes/TodoList';
 import TodoForm from './componentes/TodoForm';
 
+
+const estrenos=[{
+  id:1,
+  title:"happiness",
+  anio:"2022"
+  },
+  {
+      id:2,
+      title:"pelea de maestros",
+      anio:"2021"
+  }
+]
 const initialTodos=[{
   id:1,
-  title:"pepe",
-  description:"juj",
+  title:"task 1",
+  description:"Description example 1 ",
   completed:false
   },
   {
       id:2,
-      title:"pepe2",
-      description:"juj2",
+      title:"task 2",
+      description:"Description example 2",
       completed:false
   },
   {
     id:3,
-    title:"pepe2",
-    description:"soytres",
+    title:"task 3",
+    description:"Description example 1",
     completed:false
     },
   {
       id:4,
-      title:"pepe3",
+      title:"task 4",
       description:"soycuatro",
       completed:false
   }
@@ -34,11 +46,10 @@ const initialTodos=[{
 function App() {
   
 
-  //se toma el array y se pone index0 e index 1
+
   const [todos,setTodos]=useState(initialTodos);
   const [todoEdit, setTodoEdit] = useState(null)
-//todos=sin modificar-> state[0]
-//modificar- state[1]
+
     const todoDelete=(todoId)=>{
         const changedTodos=todos.filter(todo=>todo.id!==todoId);
         setTodos(changedTodos);
@@ -46,18 +57,7 @@ function App() {
     //delete seria ocultame la card-mostrame todos menos el seleccionado
   //boton terminar
     const todoToogleCompleted=(todoId) =>{
-     /* const changedTodos=todos.map(todo=>{
-        const todoEdit={
-          ...todo,
-          completed:!todo.completed
-        }
-        if(todo.id===todoId){
-          return todoEdit
-        }
-        else{
-          return todo
-        }
-      })*/
+
       const changedTodos=todos.map(todo=>(
         todo.id===todoId
         ? {...todo,completed: !todo.completed}
@@ -97,7 +97,7 @@ const todoAdd=(todo)=>{
 
   return (
     <div >
-      <div><h1>Listado de Tareas</h1></div>
+      <div className="paddinOnTop"><h1>Listado de Tareas</h1></div>
       
       <div >
     <TodoList todos={todos}
